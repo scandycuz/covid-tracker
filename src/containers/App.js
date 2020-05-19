@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {setUser, setInitializing} from 'actions/session';
+import {authChanged} from 'actions/session';
 import App from 'components/App';
 
 const mapStateToProps = ({session}) => ({
@@ -8,8 +8,7 @@ const mapStateToProps = ({session}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setUser: user => dispatch(setUser(user)),
-  setInitializing: status => dispatch(setInitializing(status)),
+  handleAuthChange: user => dispatch(authChanged(user)),
 });
 
 export default connect(

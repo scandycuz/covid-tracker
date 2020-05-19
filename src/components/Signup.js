@@ -17,15 +17,8 @@ function Signup() {
     setValues(current => ({...current, [field]: value}));
   };
 
-  const handleSubmit = async () => {
-    try {
-      await auth().createUserWithEmailAndPassword(
-        values.email,
-        values.password,
-      );
-    } catch (e) {
-      console.error(e);
-    }
+  const handleSubmit = () => {
+    auth().createUserWithEmailAndPassword(values.email, values.password);
   };
 
   return (

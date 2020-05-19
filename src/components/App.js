@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -9,21 +9,11 @@ import Home from 'containers/Home';
 
 const Stack = createStackNavigator();
 
-function App({user, initializing, setUser, setInitializing}) {
-  // TODO: Replace this with a Saga login function
-  const onAuthStateChanged = useCallback(
-    u => {
-      setUser(u);
-
-      if (initializing) setInitializing(false);
-    },
-    [initializing, setUser, setInitializing],
-  );
-
+function App({user, initializing, handleAuthChange}) {
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    const subscriber = auth().onAuthStateChanged(handleAuthChange);
     return subscriber;
-  }, [onAuthStateChanged]);
+  }, [handleAuthChange]);
 
   if (initializing) return null;
 
