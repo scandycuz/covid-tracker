@@ -3,9 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Color from 'util/Color';
 
-function Home({route}) {
-  const {user} = route.params;
-
+function Home({user}) {
   return (
     <View style={styles.root}>
       <LinearGradient

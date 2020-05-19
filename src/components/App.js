@@ -5,11 +5,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
 import Login from 'components/Login';
 import Signup from 'components/Signup';
-import Home from 'components/Home';
+import Home from 'containers/Home';
 
 const Stack = createStackNavigator();
 
 function App({user, initializing, setUser, setInitializing}) {
+  // TODO: Replace this with a Saga login function
   const onAuthStateChanged = useCallback(
     u => {
       setUser(u);
@@ -27,31 +28,31 @@ function App({user, initializing, setUser, setInitializing}) {
   if (initializing) return null;
 
   return (
-    <NavigationContainer>
+    <>
       <StatusBar barStyle="dark-content" />
 
-      <Stack.Navigator
-        headerMode="none"
-        initialRouteName={user ? 'Home' : 'Signup'}>
-        <Stack.Screen
-          name="Signup"
-          options={{
-            gestureDirection: 'horizontal',
-          }}
-          component={Signup}
-        />
+      <NavigationContainer>
+        {user ? (
+          <Stack.Navigator initialRouteName={'Home'} headerMode="none">
+            <Stack.Screen name="Home" component={Home} />
+          </Stack.Navigator>
+        ) : (
+          <Stack.Navigator initialRouteName={'Signup'} headerMode="none">
+            <Stack.Screen
+              name="Signup"
+              component={Signup}
+              options={{gestureDirection: 'horizontal'}}
+            />
 
-        <Stack.Screen
-          name="Login"
-          options={{
-            gestureDirection: 'horizontal-inverted',
-          }}
-          component={Login}
-        />
-
-        <Stack.Screen name="Home" component={Home} initialParams={{user}} />
-      </Stack.Navigator>
-    </NavigationContainer>
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{gestureDirection: 'horizontal-inverted'}}
+            />
+          </Stack.Navigator>
+        )}
+      </NavigationContainer>
+    </>
   );
 }
 
