@@ -1,4 +1,6 @@
 // session types
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_INITIALIZING = 'RECEIVE_INITIALIZING';
+export const RECEIVE_SESSION_ERROR = 'RECEIVE_SESSION_ERROR';
+export const SIGN_UP = 'SIGN_UP';
 export const AUTH_CHANGED = 'AUTH_CHANGED';

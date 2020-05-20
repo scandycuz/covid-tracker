@@ -1,7 +1,6 @@
 'use strict';
 
 export default {
-  primary: '#5F12B0',
   ok: {
     light: '#96c93d',
     dark: '#00b09b',
@@ -9,6 +8,10 @@ export default {
   warning: {
     light: '#fdc830',
     dark: '#f37335',
+  },
+  purple: {
+    light: '#8E2DE2',
+    dark: '#4A00E0',
   },
   white: '#FFFFFF',
   lighter: '#F3F3F3',

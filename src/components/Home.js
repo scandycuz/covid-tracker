@@ -8,7 +8,7 @@ function Home({user}) {
     <View style={styles.root}>
       <LinearGradient
         style={styles.gradient}
-        colors={[Color.ok.dark, Color.ok.light]}>
+        colors={[Color.purple.dark, Color.purple.light]}>
         <View style={styles.container}>
           <Text style={styles.title}>Welcome {user.email}</Text>
         </View>

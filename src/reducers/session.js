@@ -1,8 +1,13 @@
-import {RECEIVE_USER, RECEIVE_INITIALIZING} from 'actions/types';
+import {
+  RECEIVE_USER,
+  RECEIVE_INITIALIZING,
+  RECEIVE_SESSION_ERROR,
+} from 'actions/types';
 
 const initialState = {
   user: null,
   initializing: true,
+  error: null,
 };
 
 export default function(state = initialState, action) {
@@ -16,6 +21,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         initializing: action.initializing,
+      };
+    case RECEIVE_SESSION_ERROR:
+      return {
+        ...state,
+        error: action.error,
       };
     default: {
       return state;

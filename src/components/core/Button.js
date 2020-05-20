@@ -14,10 +14,11 @@ export default TextInput;
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 18,
+    paddingVertical: 16,
     paddingHorizontal: 24,
-    borderRadius: 24,
-    backgroundColor: Color.primary,
+    borderRadius: 32,
+    borderWidth: 2,
+    borderColor: Color.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
