@@ -55,6 +55,8 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Feather.ttf</string>
+	  <string>Ionicons.ttf</string>
 		<string>Barlow-Black.ttf</string>
 		<string>Barlow-BlackItalic.ttf</string>
 		<string>Barlow-Bold.ttf</string>
