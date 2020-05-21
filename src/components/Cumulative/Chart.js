@@ -5,20 +5,29 @@ import {LineChart} from 'react-native-chart-kit';
 import moment from 'moment';
 import Color from 'util/Color';
 
-const weekDays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+function Chart({reverse, formatYLabel, days}) {
+  const labels = [];
+  const endDate = moment().format('MMM Do');
+  const startDate = moment()
+    .subtract(days.length, 'days')
+    .format('MMM Do');
 
-function Chart({days}) {
-  const today = moment().day();
-  const labels = [...weekDays.slice(today), ...weekDays.slice(0, today)].slice(
-    2,
-  );
+  for (let i = 0; i < days.length; i++) {
+    if (i === 2) {
+      labels.push(startDate);
+    } else if (i === days.length - 4) {
+      labels.push(endDate);
+    } else {
+      labels.push('');
+    }
+  }
+
+  const current = days[days.length - 1];
+  const start = days[0];
+
+  const decreasing = reverse ? current > start : current < start;
 
   const screenWidth = Dimensions.get('window').width;
-
-  const decreasing =
-    days[0].positiveIncrease > days[days.length - 1].positiveIncrease;
-
-  const data = days.map(day => day.positiveIncrease);
 
   return (
     <View style={styles.root}>
@@ -28,11 +37,12 @@ function Chart({days}) {
         withInnerLines={false}
         withOuterLines={false}
         data={{
-          labels: labels,
-          datasets: [{data}],
+          labels,
+          datasets: [{data: days}],
         }}
         width={screenWidth - 32}
-        height={240}
+        height={180}
+        formatYLabel={formatYLabel ? formatYLabel : l => l}
         chartConfig={{
           backgroundColor: Color.white,
           backgroundGradientFrom: Color.white,
@@ -43,7 +53,7 @@ function Chart({days}) {
           color: (opacity = 1) => {
             return Color.hexToRgba(
               decreasing ? Color.ok.light : Color.warning.light,
-              0.5,
+              0.6,
             );
           },
           labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
@@ -52,6 +62,10 @@ function Chart({days}) {
     </View>
   );
 }
+
+Chart.defaultProps = {
+  reverse: false,
+};
 
 export default Chart;
 

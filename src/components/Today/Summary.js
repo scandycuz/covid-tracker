@@ -16,7 +16,7 @@ function Summary({positiveTestRatioChange, totalTestRatioChange}) {
         </Text>
       ) : (
         <Text style={styles.summary}>
-          The current trend is <Text style={styles.bad}>worsening</Text>
+          The current trend is <Text style={styles.bad}>deteriorating</Text>
         </Text>
       )}
     </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import Color from 'util/Color';
 
 function TabBar({state, descriptors, navigation}) {
@@ -7,7 +7,6 @@ function TabBar({state, descriptors, navigation}) {
     <View style={styles.root}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
-        const label = route.name || options.title;
 
         const isFocused = state.index === index;
 
@@ -47,11 +46,6 @@ function TabBar({state, descriptors, navigation}) {
                 size: 24,
               })}
             </View>
-
-            <Text
-              style={isFocused ? [styles.label, styles.focused] : styles.label}>
-              {label}
-            </Text>
           </TouchableOpacity>
         );
       })}

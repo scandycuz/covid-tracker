@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
-import Header from 'components/Header';
+import Text from 'components/core/Text';
+import Header from '../Header';
 import Results from './Results';
-import Summary from './Summary';
 
 function Today({state, daily}) {
   const today = daily[0];
@@ -16,6 +16,10 @@ function Today({state, daily}) {
         </View>
 
         <View style={styles.content}>
+          <View style={styles.headingContainer}>
+            <Text style={styles.heading}>Today</Text>
+          </View>
+
           <View style={styles.item}>
             <Results
               label="Positive Tests"
@@ -36,22 +40,10 @@ function Today({state, daily}) {
           <View style={styles.item}>
             <Results
               asPercentage
-              label="Percentage of Positive Tests"
+              label="Positive Test Percentage"
               today={today.positiveIncrease / today.totalTestResultsIncrease}
               yesterday={
                 yesterday.positiveIncrease / yesterday.totalTestResultsIncrease
-              }
-            />
-          </View>
-
-          <View style={styles.summaryContainer}>
-            <Summary
-              positiveTestRatioChange={
-                today.positiveIncrease / yesterday.positiveIncrease
-              }
-              totalTestRatioChange={
-                today.totalTestResultsIncrease /
-                yesterday.totalTestResultsIncrease
               }
             />
           </View>
@@ -72,9 +64,17 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   content: {
-    marginTop: 16,
+    marginTop: 8,
     padding: 16,
     alignItems: 'center',
+  },
+  headingContainer: {
+    marginBottom: 16,
+  },
+  heading: {
+    fontSize: 32,
+    textAlign: 'center',
+    fontFamily: 'FiraSans-light',
   },
   item: {
     marginBottom: 20,
