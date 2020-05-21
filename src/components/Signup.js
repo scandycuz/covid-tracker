@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {KeyboardAvoidingView, View, Text, StyleSheet} from 'react-native';
+import {KeyboardAvoidingView, View, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import TextInput from 'components/core/TextInput';
 import PasswordInput from 'components/core/PasswordInput';
 import Button from 'components/core/Button';
+import Text from 'components/core/Text';
 import Color from 'util/Color';
 
 function Signup({error, signUp, setError}) {

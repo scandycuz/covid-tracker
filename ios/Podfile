@@ -79,6 +79,8 @@ target 'covidTracker' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'covidTrackerTests' do
     inherit! :complete
     # Pods for testing

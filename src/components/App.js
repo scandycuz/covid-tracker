@@ -23,11 +23,9 @@ function App({user, initializing, handleAuthChange}) {
 
       <NavigationContainer>
         {user ? (
-          <Stack.Navigator initialRouteName={'Home'} headerMode="none">
-            <Stack.Screen name="Home" component={Home} />
-          </Stack.Navigator>
+          <Home />
         ) : (
-          <Stack.Navigator initialRouteName={'Signup'} headerMode="none">
+          <Stack.Navigator initialRouteName="Signup" headerMode="none">
             <Stack.Screen
               name="Signup"
               component={Signup}

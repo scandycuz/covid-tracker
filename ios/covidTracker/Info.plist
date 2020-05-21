@@ -53,6 +53,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required to personalize your Covid 19 information.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your location is required to personalize your Covid 19 information.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is required to personalize your Covid 19 information.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Feather.ttf</string>

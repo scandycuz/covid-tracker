@@ -1,6 +1,8 @@
 import {
   RECEIVE_USER,
   RECEIVE_INITIALIZING,
+  GET_STATE,
+  RECEIVE_STATE,
   RECEIVE_SESSION_ERROR,
   SIGN_UP,
   AUTH_CHANGED,
@@ -20,10 +22,23 @@ export function authChanged(user) {
   };
 }
 
+export function getState() {
+  return {
+    type: GET_STATE,
+  };
+}
+
 export function setUser(user) {
   return {
     type: RECEIVE_USER,
     user,
+  };
+}
+
+export function setState(state) {
+  return {
+    type: RECEIVE_STATE,
+    state,
   };
 }
 

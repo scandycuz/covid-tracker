@@ -1,8 +1,19 @@
 import {connect} from 'react-redux';
+import {getState} from 'actions/session';
 import Home from 'components/Home';
 
-const mapStateToProps = ({session}) => ({
+const mapStateToProps = ({session, data}) => ({
   user: session.user,
+  state: session.state,
+  daily: data.daily,
+  loading: data.loading,
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => ({
+  getState: () => dispatch(getState()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);

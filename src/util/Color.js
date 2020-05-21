@@ -6,8 +6,12 @@ export default {
     dark: '#00b09b',
   },
   warning: {
-    light: '#fdc830',
+    light: '#FFCA58',
     dark: '#f37335',
+  },
+  critical: {
+    light: '#FF4040',
+    dark: '#FF4040',
   },
   purple: {
     light: '#8E2DE2',
@@ -18,12 +22,13 @@ export default {
   light: '#DAE1E7',
   dark: '#444444',
   black: '#000000',
+  disabled: '#888888',
   link: '#147efb',
 
-  hexToRgbA,
+  hexToRgba,
 };
 
-function hexToRgbA(hex, alpha) {
+function hexToRgba(hex, alpha) {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
