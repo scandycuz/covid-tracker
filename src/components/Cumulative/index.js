@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, ScrollView, SafeAreaView, Text, StyleSheet} from 'react-native';
+import moment from 'moment';
 import Number from 'util/Number';
 import Color from 'util/Color';
 import Header from '../Header';
@@ -19,15 +20,11 @@ function Today({state, daily}) {
           <Header state={state} />
 
           <View style={styles.headingContainer}>
-            <Text style={styles.heading}>Total</Text>
+            <Text style={styles.heading}>Cumulative</Text>
           </View>
 
           <View style={styles.item}>
-            <Results
-              label="Positive Tests"
-              total={current.positive}
-              data={daily.map(attribute('positive')).slice(0, 30)}
-            />
+            <Results label="Positive Tests" total={current.positive} />
             <Chart
               days={daily
                 .map(attribute('positive'))
@@ -39,11 +36,7 @@ function Today({state, daily}) {
           </View>
 
           <View style={styles.item}>
-            <Results
-              label="Total Tests"
-              total={current.totalTestResults}
-              data={daily.map(attribute('totalTestResults')).slice(0, 30)}
-            />
+            <Results label="Total Tests" total={current.totalTestResults} />
             <Chart
               reverse
               days={daily
@@ -58,7 +51,8 @@ function Today({state, daily}) {
 
         <View style={styles.footer}>
           <Text style={styles.disclaimer}>
-            Last update at {current.lastUpdateEt} ET
+            Last update at{' '}
+            {moment(current.dateChecked).format('M/D/YYYY h:mm A')}
           </Text>
         </View>
       </ScrollView>

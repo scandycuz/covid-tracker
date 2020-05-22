@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
+import moment from 'moment';
 import Text from 'components/core/Text';
 import Color from 'util/Color';
 import Header from '../Header';
@@ -53,7 +54,7 @@ function Today({state, daily}) {
 
         <View style={styles.footer}>
           <Text style={styles.disclaimer}>
-            Last update at {today.lastUpdateEt} ET
+            Last update at {moment(today.dateChecked).format('M/D/YYYY h:mm A')}
           </Text>
         </View>
       </ScrollView>

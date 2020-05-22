@@ -25,6 +25,15 @@ function Signup({navigate, error, onSubmit, setError}) {
     setError(null);
   };
 
+  const clearValues = () => {
+    setValues({email: '', password: ''});
+  };
+
+  const handleNavigation = name => {
+    clearValues();
+    navigate(name);
+  };
+
   const handleChange = field => value => {
     if (error) clearError();
 
@@ -52,7 +61,6 @@ function Signup({navigate, error, onSubmit, setError}) {
         <PasswordInput
           ref={passwordRef}
           placeholder="Password"
-          autoCapitalize="none"
           value={values.password}
           onChangeText={handleChange('password')}
           onSubmitEditing={handleSubmit}
@@ -71,7 +79,8 @@ function Signup({navigate, error, onSubmit, setError}) {
 
       <View style={styles.infoContainer}>
         <Text style={styles.info}>
-          Have an account? <Link onPress={() => navigate('Login')}>Log In</Link>
+          Have an account?{' '}
+          <Link onPress={() => handleNavigation('Login')}>Log In</Link>
         </Text>
       </View>
     </View>
