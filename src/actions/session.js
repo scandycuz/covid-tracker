@@ -5,9 +5,16 @@ import {
   RECEIVE_STATE,
   RECEIVE_SESSION_ERROR,
   SIGN_UP,
+  LOG_IN,
   AUTH_CHANGED,
 } from 'actions/types';
 
+export function logIn(params) {
+  return {
+    type: LOG_IN,
+    params,
+  };
+}
 export function signUp(params) {
   return {
     type: SIGN_UP,

@@ -1,17 +1,25 @@
-import React, {useState} from 'react';
-import {KeyboardAvoidingView, View, StyleSheet} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import React, {useState, useRef} from 'react';
+import {View, StyleSheet} from 'react-native';
 import TextInput from 'components/core/TextInput';
 import PasswordInput from 'components/core/PasswordInput';
 import Button from 'components/core/Button';
+import Link from 'components/core/Link';
 import Text from 'components/core/Text';
 import Color from 'util/Color';
 
-function Signup({error, signUp, setError}) {
+function Signup({navigate, error, onSubmit, setError}) {
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
+
+  const disabled = !values.email.length || !values.password.length;
+
+  const passwordRef = useRef();
+
+  const focusPassword = () => {
+    passwordRef.current.focus();
+  };
 
   const clearError = () => {
     setError(null);
@@ -24,53 +32,48 @@ function Signup({error, signUp, setError}) {
   };
 
   const handleSubmit = () => {
-    signUp({email: values.email, password: values.password});
+    onSubmit({email: values.email, password: values.password});
   };
 
   return (
     <View style={styles.root}>
-      <LinearGradient
-        useAngle
-        style={styles.gradient}
-        angle={135}
-        angleCenter={{x: 0.5, y: 0.5}}
-        colors={[Color.purple.light, Color.purple.dark]}>
-        <KeyboardAvoidingView style={styles.container} behavior="height">
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Covid Tracker</Text>
-          </View>
+      <View style={styles.email}>
+        <TextInput
+          keyboardType="email-address"
+          placeholder="Email"
+          autoCapitalize="none"
+          value={values.email}
+          onChangeText={handleChange('email')}
+          onSubmitEditing={focusPassword}
+        />
+      </View>
 
-          <View style={styles.inputContainer}>
-            <View style={styles.email}>
-              <TextInput
-                autoFocus
-                keyboardType="email-address"
-                placeholder="Email"
-                value={values.email}
-                onChangeText={handleChange('email')}
-              />
-            </View>
+      <View style={styles.password}>
+        <PasswordInput
+          ref={passwordRef}
+          placeholder="Password"
+          autoCapitalize="none"
+          value={values.password}
+          onChangeText={handleChange('password')}
+          onSubmitEditing={handleSubmit}
+        />
+      </View>
 
-            <View style={styles.password}>
-              <PasswordInput
-                placeholder="Password"
-                value={values.password}
-                onChangeText={handleChange('password')}
-              />
-            </View>
+      {error && (
+        <View style={styles.errorContainer}>
+          <Text style={styles.error}>{error}</Text>
+        </View>
+      )}
 
-            {error && (
-              <View style={styles.errorContainer}>
-                <Text style={styles.error}>{error}</Text>
-              </View>
-            )}
+      <View style={styles.buttonContainer}>
+        <Button disabled={disabled} onPress={handleSubmit} title="Sign Up" />
+      </View>
 
-            <View style={styles.buttonContainer}>
-              <Button onPress={handleSubmit} title="Sign up" />
-            </View>
-          </View>
-        </KeyboardAvoidingView>
-      </LinearGradient>
+      <View style={styles.infoContainer}>
+        <Text style={styles.info}>
+          Have an account? <Link onPress={() => navigate('Login')}>Log In</Link>
+        </Text>
+      </View>
     </View>
   );
 }
@@ -79,35 +82,6 @@ export default Signup;
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
-  },
-  gradient: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  titleContainer: {
-    marginBottom: 40,
-  },
-  title: {
-    fontSize: 48,
-    color: Color.white,
-    fontFamily: 'Barlow-Bold',
-  },
-  subtitleContainer: {
-    marginBottom: 24,
-  },
-  subtitle: {
-    fontSize: 36,
-    color: Color.white,
-    fontFamily: 'Barlow-Regular',
-  },
-  inputContainer: {
-    width: '100%',
     padding: 16,
   },
   email: {
@@ -123,5 +97,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 20,
+  },
+  infoContainer: {
+    paddingVertical: 26,
+    alignItems: 'center',
+  },
+  info: {
+    fontSize: 20,
+    color: Color.white,
   },
 });

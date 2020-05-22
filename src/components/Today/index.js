@@ -1,21 +1,23 @@
 import React from 'react';
 import {View, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
 import Text from 'components/core/Text';
+import Color from 'util/Color';
 import Header from '../Header';
+import NoData from '../NoData';
 import Results from './Results';
 
 function Today({state, daily}) {
   const today = daily[0];
   const yesterday = daily[1];
 
+  if (!today.totalTestResultsIncrease) return <NoData state={state} />;
+
   return (
     <SafeAreaView style={styles.root}>
-      <ScrollView style={styles.main}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View>
           <Header state={state} />
-        </View>
 
-        <View style={styles.content}>
           <View style={styles.headingContainer}>
             <Text style={styles.heading}>Today</Text>
           </View>
@@ -48,6 +50,12 @@ function Today({state, daily}) {
             />
           </View>
         </View>
+
+        <View style={styles.footer}>
+          <Text style={styles.disclaimer}>
+            Last update at {today.lastUpdateEt} ET
+          </Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -59,17 +67,13 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  main: {
-    flex: 1,
-    width: '100%',
-  },
-  content: {
-    marginTop: 8,
-    padding: 16,
-    alignItems: 'center',
+  container: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
   },
   headingContainer: {
-    marginBottom: 16,
+    marginTop: 8,
+    padding: 16,
   },
   heading: {
     fontSize: 32,
@@ -77,9 +81,15 @@ const styles = StyleSheet.create({
     fontFamily: 'FiraSans-light',
   },
   item: {
+    paddingHorizontal: 16,
     marginBottom: 20,
   },
-  summaryContainer: {
-    marginTop: 10,
+  footer: {
+    padding: 16,
+  },
+  disclaimer: {
+    textAlign: 'center',
+    fontSize: 16,
+    color: Color.disabled,
   },
 });

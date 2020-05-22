@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, forwardRef} from 'react';
 import {View, TouchableOpacity, TextInput, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import Color from 'util/Color';
 
-function PasswordInput(props) {
+const PasswordInput = forwardRef((props, ref) => {
   const [hidden, setHidden] = useState(true);
 
   const handlePress = () => {
@@ -12,14 +12,19 @@ function PasswordInput(props) {
 
   return (
     <View style={styles.root}>
-      <TextInput style={styles.input} {...props} secureTextEntry={hidden} />
+      <TextInput
+        ref={ref}
+        style={styles.input}
+        {...props}
+        secureTextEntry={hidden}
+      />
 
       <TouchableOpacity onPress={handlePress}>
         <Icon name={hidden ? 'eye' : 'eye-off'} size={32} color={Color.dark} />
       </TouchableOpacity>
     </View>
   );
-}
+});
 
 export default PasswordInput;
 

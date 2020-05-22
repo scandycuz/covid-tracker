@@ -8,6 +8,7 @@ import {
   setState,
 } from 'actions/session';
 import {
+  LOG_IN,
   SIGN_UP,
   AUTH_CHANGED,
   GET_STATE,
@@ -54,7 +55,15 @@ export function* fetchCovidData({state}) {
   }
 }
 
-export function* onSignUp({params: {email, password}}) {
+export function* onLogin({params: {email, password}}) {
+  try {
+    yield auth().signInWithEmailAndPassword(email, password);
+  } catch (e) {
+    yield put(setSessionError(Error.parseFirebaseError(e)));
+  }
+}
+
+export function* onSignup({params: {email, password}}) {
   try {
     yield auth().createUserWithEmailAndPassword(email, password);
   } catch (e) {
@@ -77,7 +86,8 @@ export function* dataSaga() {
 }
 
 export function* sessionSaga() {
-  yield takeLatest(SIGN_UP, onSignUp);
+  yield takeLatest(LOG_IN, onLogin);
+  yield takeLatest(SIGN_UP, onSignup);
   yield takeLatest(AUTH_CHANGED, onAuthChange);
   yield takeLatest(RECEIVE_USER, stopInitializing);
 }

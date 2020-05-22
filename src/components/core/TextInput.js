@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import {TextInput as Input, StyleSheet} from 'react-native';
 import Color from 'util/Color';
 
-function TextInput(props) {
-  return <Input style={styles.input} {...props} />;
-}
+const TextInput = forwardRef((props, ref) => {
+  return <Input ref={ref} style={styles.input} {...props} />;
+});
 
 export default TextInput;
 

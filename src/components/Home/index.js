@@ -54,28 +54,6 @@ export default Home;
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  headerContainer: {
-    marginTop: 8,
-  },
-  main: {
-    flex: 1,
-    width: '100%',
-  },
-  content: {
-    marginTop: 16,
-    padding: 16,
-    alignItems: 'center',
-  },
-  item: {
-    marginBottom: 20,
-  },
-  summaryContainer: {
-    marginTop: 10,
+    height: '100%',
   },
 });

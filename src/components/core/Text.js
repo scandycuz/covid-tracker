@@ -2,7 +2,11 @@ import React from 'react';
 import {Text as NativeText, StyleSheet} from 'react-native';
 
 function Text({style, children, ...rest}) {
-  return <NativeText style={[styles.title, style]}>{children}</NativeText>;
+  return (
+    <NativeText style={[styles.title, style]} {...rest}>
+      {children}
+    </NativeText>
+  );
 }
 
 Text.defaultProps = {

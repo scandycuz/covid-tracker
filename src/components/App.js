@@ -1,13 +1,9 @@
 import React, {useEffect} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
-import Login from 'components/Login';
-import Signup from 'containers/Signup';
+import Auth from 'containers/Auth';
 import Home from 'containers/Home';
-
-const Stack = createStackNavigator();
 
 function App({user, initializing, handleAuthChange}) {
   useEffect(() => {
@@ -18,30 +14,18 @@ function App({user, initializing, handleAuthChange}) {
   if (initializing) return null;
 
   return (
-    <>
+    <View style={styles.root}>
       <StatusBar barStyle="dark-content" />
 
-      <NavigationContainer>
-        {user ? (
-          <Home />
-        ) : (
-          <Stack.Navigator initialRouteName="Signup" headerMode="none">
-            <Stack.Screen
-              name="Signup"
-              component={Signup}
-              options={{gestureDirection: 'horizontal'}}
-            />
-
-            <Stack.Screen
-              name="Login"
-              component={Login}
-              options={{gestureDirection: 'horizontal-inverted'}}
-            />
-          </Stack.Navigator>
-        )}
-      </NavigationContainer>
-    </>
+      <NavigationContainer>{user ? <Home /> : <Auth />}</NavigationContainer>
+    </View>
   );
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});

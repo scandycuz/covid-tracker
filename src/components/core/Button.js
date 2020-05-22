@@ -2,15 +2,19 @@ import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 import Color from 'util/Color';
 
-function TextInput(props) {
+function Button({disabled, title, onPress, ...rest}) {
   return (
-    <TouchableOpacity style={styles.button} {...props}>
-      <Text style={styles.title}>{props.title}</Text>
+    <TouchableOpacity
+      style={styles.button}
+      activeOpacity={disabled ? 1 : undefined}
+      onPress={disabled ? undefined : onPress}
+      {...rest}>
+      <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
-export default TextInput;
+export default Button;
 
 const styles = StyleSheet.create({
   button: {
