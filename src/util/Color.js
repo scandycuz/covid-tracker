@@ -18,6 +18,7 @@ export default {
     dark: '#4A00E0',
   },
   white: '#FFFFFF',
+  offWhite: '#E9E9EF',
   lighter: '#F3F3F3',
   light: '#DAE1E7',
   dark: '#444444',

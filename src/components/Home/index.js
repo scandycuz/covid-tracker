@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Today from 'containers/Today';
 import Cumulative from 'containers/Cumulative';
+import Loading from '../Loading';
 import TabBar from './TabBar';
 
 const Tab = createBottomTabNavigator();
@@ -19,7 +20,7 @@ function Home({loading, getState}) {
     };
   }, [getState]);
 
-  if (loading) return null;
+  if (loading) return <Loading loading={loading} />;
 
   return (
     <View style={styles.root}>
