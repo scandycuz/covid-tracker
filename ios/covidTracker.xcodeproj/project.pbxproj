@@ -59,10 +59,7 @@
 		C6E038FE3DFE47DCB266459F /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF9B0CBC8FA246DC9178433A /* Rubik-Italic.ttf */; };
 		C72FDF7969FF4A07A08F73E2 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29D1FEFF1593426BB7F24439 /* Rubik-Regular.ttf */; };
 		D1040DA53C0D4FC8897FF694 /* FiraSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF3216A6DD74C0A882002EE /* FiraSans-ExtraLight.ttf */; };
-		E3ED570A2474FDBE0071470E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3ED57092474FDBE0071470E /* GoogleService-Info.plist */; };
-		E3ED570B2474FDBE0071470E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3ED57092474FDBE0071470E /* GoogleService-Info.plist */; };
-		E3ED570C2474FDBE0071470E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3ED57092474FDBE0071470E /* GoogleService-Info.plist */; };
-		E3ED570D2474FDBE0071470E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3ED57092474FDBE0071470E /* GoogleService-Info.plist */; };
+		E3DE1AE6247A70ED00BE55A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3DE1AE5247A70ED00BE55A1 /* GoogleService-Info.plist */; };
 		E7552FC20B614B3CAB76B128 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCC7D32732774CEE81ECB8F3 /* Rubik-BlackItalic.ttf */; };
 		E7B7687F5ADF6DC52BDC7B36 /* libPods-covidTracker-covidTrackerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C04D4BAE131DE3D76DB6A4 /* libPods-covidTracker-covidTrackerTests.a */; };
 		EADC3999313645BCB4791D9A /* FiraSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EB30BCED6264FE2AD17448B /* FiraSans-Medium.ttf */; };
@@ -151,7 +148,7 @@
 		D4DB8443E4E447D6BA2383C1 /* Barlow-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Barlow-ThinItalic.ttf"; path = "../assets/fonts/Barlow/Barlow-ThinItalic.ttf"; sourceTree = "<group>"; };
 		DE877CD0E97A7FCE87D91BE7 /* libPods-covidTracker-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-covidTracker-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3999E4196F54910BB9E38E8 /* FiraSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "FiraSans-SemiBoldItalic.ttf"; path = "../assets/fonts/Fira_Sans/FiraSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		E3ED57092474FDBE0071470E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3DE1AE5247A70ED00BE55A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC07B87D652649AB8FE96CBC /* Barlow-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Barlow-Thin.ttf"; path = "../assets/fonts/Barlow/Barlow-Thin.ttf"; sourceTree = "<group>"; };
 		EC81873A8C46C94B6453CF1F /* Pods-covidTracker-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-covidTracker-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-covidTracker-tvOS/Pods-covidTracker-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -222,7 +219,7 @@
 		13B07FAE1A68108700A75B9A /* covidTracker */ = {
 			isa = PBXGroup;
 			children = (
-				E3ED57092474FDBE0071470E /* GoogleService-Info.plist */,
+				E3DE1AE5247A70ED00BE55A1 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -487,7 +484,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ED570B2474FDBE0071470E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +539,7 @@
 				BDE54D40E28D4B1196EBEB82 /* Rubik-Medium.ttf in Resources */,
 				3A6C0D6484F341D6B9AB05CE /* Rubik-MediumItalic.ttf in Resources */,
 				C72FDF7969FF4A07A08F73E2 /* Rubik-Regular.ttf in Resources */,
-				E3ED570A2474FDBE0071470E /* GoogleService-Info.plist in Resources */,
+				E3DE1AE6247A70ED00BE55A1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +548,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-				E3ED570C2474FDBE0071470E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +555,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ED570D2474FDBE0071470E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,7 +952,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.trevorscandalios.covidTracker;
 				PRODUCT_NAME = covidTracker;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -982,7 +976,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.trevorscandalios.covidTracker;
 				PRODUCT_NAME = covidTracker;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

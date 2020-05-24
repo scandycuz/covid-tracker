@@ -4,13 +4,14 @@ import {
   ScrollView,
   View,
   KeyboardAvoidingView,
-  Text,
+  Image,
   StyleSheet,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Signup from 'components/Signup';
 import Login from 'components/Login';
 import Color from 'util/Color';
+import {logo} from 'assets/images';
 
 function Auth({error, logIn, signUp, setError}) {
   const scrollRef = useRef();
@@ -36,10 +37,6 @@ function Auth({error, logIn, signUp, setError}) {
         angleCenter={{x: 0.5, y: 0.5}}
         colors={[Color.purple.light, Color.purple.dark]}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Covid Tracker</Text>
-          </View>
-
           <View>
             <ScrollView
               horizontal
@@ -49,6 +46,9 @@ function Auth({error, logIn, signUp, setError}) {
               scrollEnabled={false}
               snapToAlignment={'center'}>
               <View style={{width}}>
+                <View style={styles.logoContainer}>
+                  <Image style={styles.logo} source={logo} />
+                </View>
                 <Signup
                   error={error}
                   setError={setError}
@@ -57,6 +57,9 @@ function Auth({error, logIn, signUp, setError}) {
                 />
               </View>
               <View style={{width}}>
+                <View style={styles.logoContainer}>
+                  <Image style={styles.logo} source={logo} />
+                </View>
                 <Login
                   error={error}
                   setError={setError}
@@ -89,13 +92,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
   },
-  titleContainer: {
-    marginBottom: 40,
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 16,
   },
-  title: {
-    fontSize: 48,
-    color: Color.white,
-    fontFamily: 'Barlow-Bold',
+  logo: {
+    width: 124,
+    height: 124,
+    opacity: 0.85,
   },
   scrollContainer: {
     flexGrow: 0,

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>238380262626-o94gcrfr0tlqhred8om0k7jo9ffiru3d.apps.googleusercontent.com</string>
+	<string>238380262626-gob8k23spcm9rl6fi01kmiriq6b7qmed.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.238380262626-o94gcrfr0tlqhred8om0k7jo9ffiru3d</string>
+	<string>com.googleusercontent.apps.238380262626-gob8k23spcm9rl6fi01kmiriq6b7qmed</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC80XutEny2QrlBdnHW4KBP3KcHiTEkExs</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.covidTracker</string>
+	<string>com.trevorscandalios.covidTracker</string>
 	<key>PROJECT_ID</key>
 	<string>covid-tracker-62581</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:238380262626:ios:770b32f8201bea52d4aabb</string>
+	<string>1:238380262626:ios:40df4b83dcc0eee1d4aabb</string>
 	<key>DATABASE_URL</key>
 	<string>https://covid-tracker-62581.firebaseio.com</string>
 </dict>
