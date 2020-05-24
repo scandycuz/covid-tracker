@@ -37,32 +37,16 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location is required to personalize your Covid 19 information.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Your location is required to personalize your Covid 19 information.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Your location is required to personalize your Covid 19 information.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required to personalize your Covid 19 information.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Feather.ttf</string>
-	  <string>Ionicons.ttf</string>
+		<string>Ionicons.ttf</string>
 		<string>Barlow-Black.ttf</string>
 		<string>Barlow-BlackItalic.ttf</string>
 		<string>Barlow-Bold.ttf</string>
@@ -110,5 +94,17 @@
 		<string>Rubik-MediumItalic.ttf</string>
 		<string>Rubik-Regular.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
