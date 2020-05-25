@@ -5,8 +5,8 @@ import Text from 'components/core/Text';
 import Number from 'util/Number';
 import Color from 'util/Color';
 
-function Results({reverse, asPercentage, label, today, yesterday}) {
-  const isLess = today < yesterday;
+function Results({reverse, asPercentage, label, current, prior}) {
+  const isLess = current < prior;
   const improving = reverse ? !isLess : isLess;
 
   return (
@@ -22,7 +22,9 @@ function Results({reverse, asPercentage, label, today, yesterday}) {
               styles.count,
               improving ? styles.positive : styles.negative,
             ]}>
-            {asPercentage ? Number.toPercentage(today) : Number.toString(today)}
+            {asPercentage
+              ? Number.toPercentage(current)
+              : Number.toString(current)}
           </Text>
         </View>
 
@@ -40,9 +42,9 @@ function Results({reverse, asPercentage, label, today, yesterday}) {
               improving ? styles.positive : styles.negative,
             ]}>
             {asPercentage
-              ? Number.toPercentage(Math.abs(today - yesterday))
-              : Number.toString(Math.abs(today - yesterday))}{' '}
-            {isLess ? 'less' : 'higher'} than yesterday
+              ? Number.toPercentage(Math.abs(current - prior))
+              : Number.toString(Math.abs(current - prior))}{' '}
+            {isLess ? 'less' : 'higher'} than the prior 7 days
           </Text>
         </View>
       </View>

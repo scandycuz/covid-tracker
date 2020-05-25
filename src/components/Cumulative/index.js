@@ -26,10 +26,7 @@ function Today({state, daily}) {
           <View style={styles.item}>
             <Results label="Positive Tests" total={current.positive} />
             <Chart
-              days={daily
-                .map(attribute('positive'))
-                .slice(0, 30)
-                .reverse()}
+              days={daily.map(attribute('positive')).reverse()}
               formatYLabel={l => `
                 ${Number.toString(Number.round(l, 1000) / 1000)} K`}
             />
@@ -39,10 +36,7 @@ function Today({state, daily}) {
             <Results label="Total Tests" total={current.totalTestResults} />
             <Chart
               reverse
-              days={daily
-                .map(attribute('totalTestResults'))
-                .slice(0, 30)
-                .reverse()}
+              days={daily.map(attribute('totalTestResults')).reverse()}
               formatYLabel={l => `
                 ${Number.toString(Number.round(l, 1000) / 1000)} K`}
             />

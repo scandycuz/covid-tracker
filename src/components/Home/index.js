@@ -3,6 +3,7 @@ import {AppState, View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Today from 'containers/Today';
+import Week from 'containers/Week';
 import Cumulative from 'containers/Cumulative';
 import Loading from '../Loading';
 import TabBar from './TabBar';
@@ -33,6 +34,15 @@ function Home({loading, getState}) {
           options={{
             tabBarIcon: ({color, size}) => (
               <Icon name="calendar" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Week"
+          component={Week}
+          options={{
+            tabBarIcon: ({color, size}) => (
+              <Icon name="activity" size={size} color={color} />
             ),
           }}
         />

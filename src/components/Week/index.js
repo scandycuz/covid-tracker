@@ -4,14 +4,11 @@ import moment from 'moment';
 import Text from 'components/core/Text';
 import Color from 'util/Color';
 import Header from '../Header';
-import NoData from '../NoData';
 import Results from './Results';
 
-function Today({state, daily}) {
-  const today = daily[0];
-  const yesterday = daily[1];
-
-  if (!today.totalTestResultsIncrease) return <NoData state={state} />;
+function Week({state, daily}) {
+  const curr = daily.slice(0, 7);
+  const prior = daily.slice(7, 14);
 
   return (
     <SafeAreaView style={styles.root}>
@@ -20,14 +17,20 @@ function Today({state, daily}) {
           <Header state={state} />
 
           <View style={styles.headingContainer}>
-            <Text style={styles.heading}>Today</Text>
+            <Text style={styles.heading}>7 Day Running Average</Text>
           </View>
 
           <View style={styles.item}>
             <Results
               label="Positive Tests"
-              today={today.positiveIncrease}
-              yesterday={yesterday.positiveIncrease}
+              current={parseInt(
+                avg(curr.map(attribute('positiveIncrease'))),
+                10,
+              )}
+              prior={parseInt(
+                avg(prior.map(attribute('positiveIncrease'))),
+                10,
+              )}
             />
           </View>
 
@@ -35,8 +38,14 @@ function Today({state, daily}) {
             <Results
               reverse
               label="Total Tests"
-              today={today.totalTestResultsIncrease}
-              yesterday={yesterday.totalTestResultsIncrease}
+              current={parseInt(
+                avg(curr.map(attribute('totalTestResultsIncrease'))),
+                10,
+              )}
+              prior={parseInt(
+                avg(prior.map(attribute('totalTestResultsIncrease'))),
+                10,
+              )}
             />
           </View>
 
@@ -44,17 +53,16 @@ function Today({state, daily}) {
             <Results
               asPercentage
               label="Positive Test Percentage"
-              today={today.positiveIncrease / today.totalTestResultsIncrease}
-              yesterday={
-                yesterday.positiveIncrease / yesterday.totalTestResultsIncrease
-              }
+              current={avg(curr.map(ratio))}
+              prior={avg(prior.map(ratio))}
             />
           </View>
         </View>
 
         <View style={styles.footer}>
           <Text style={styles.disclaimer}>
-            Last update at {moment(today.dateChecked).format('M/D/YYYY h:mm A')}
+            Last update at{' '}
+            {moment(curr[0].dateChecked).format('M/D/YYYY h:mm A')}
           </Text>
         </View>
       </ScrollView>
@@ -62,7 +70,7 @@ function Today({state, daily}) {
   );
 }
 
-export default Today;
+export default Week;
 
 const styles = StyleSheet.create({
   root: {
@@ -94,3 +102,17 @@ const styles = StyleSheet.create({
     color: Color.disabled,
   },
 });
+
+const attribute = attr => d => d[attr];
+
+const ratio = d => d.positiveIncrease / d.totalTestResultsIncrease;
+
+function avg(arr) {
+  const sum = arr.reduce((c, i) => {
+    c += i;
+
+    return c;
+  }, 0);
+
+  return sum / arr.length;
+}
