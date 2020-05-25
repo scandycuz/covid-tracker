@@ -105,11 +105,15 @@ const styles = StyleSheet.create({
 
 const attribute = attr => d => d[attr];
 
-const ratio = d => d.positiveIncrease / d.totalTestResultsIncrease;
+const ratio = d => {
+  if (!d.totalTestResultsIncrease) return 0;
+
+  return d.positiveIncrease / d.totalTestResultsIncrease;
+};
 
 function avg(arr) {
-  const sum = arr.reduce((c, i) => {
-    c += i;
+  const sum = arr.reduce((c, num, nums) => {
+    c += num;
 
     return c;
   }, 0);
