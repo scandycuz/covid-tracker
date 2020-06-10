@@ -2,8 +2,8 @@ import React from 'react';
 import {View, ScrollView, SafeAreaView, StyleSheet} from 'react-native';
 import moment from 'moment';
 import Text from 'components/core/Text';
+import Header from 'containers/Header';
 import Color from 'util/Color';
-import Header from '../Header';
 import NoData from '../NoData';
 import Results from './Results';
 
@@ -17,7 +17,7 @@ function Today({state, daily}) {
     <SafeAreaView style={styles.root}>
       <ScrollView contentContainerStyle={styles.container}>
         <View>
-          <Header state={state} />
+          <Header />
 
           <View style={styles.headingContainer}>
             <Text style={styles.heading}>Today</Text>

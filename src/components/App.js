@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {StatusBar, View, StyleSheet} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import Auth from 'containers/Auth';
 import Home from 'containers/Home';
@@ -18,7 +17,7 @@ function App({user, initializing, handleAuthChange}) {
     <View style={styles.root}>
       <StatusBar barStyle="dark-content" />
 
-      <NavigationContainer>{user ? <Home /> : <Auth />}</NavigationContainer>
+      {user ? <Home /> : <Auth />}
     </View>
   );
 }

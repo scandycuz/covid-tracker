@@ -81,6 +81,7 @@ export function* onAuthChange({user}) {
 
 export function* dataSaga() {
   yield takeLatest(GET_STATE, fetchState);
+  yield takeLatest(RECEIVE_STATE, startLoading);
   yield takeLatest(RECEIVE_STATE, fetchCovidData);
   yield takeLatest(RECEIVE_COVID_DATA, stopLoading);
 }

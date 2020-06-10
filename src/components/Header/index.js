@@ -1,18 +1,40 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/Feather';
 import Color from 'util/Color';
+import StateList from './StateList';
 
-function Header({state}) {
+function Header({state, setState}) {
+  const [listVisible, setListVisible] = useState(false);
+
   const today = moment().format('MMMM Do');
+
+  const handleStatePress = ({abbr, name}) => {
+    setState({shortName: abbr, longName: name});
+    setListVisible(false);
+  };
 
   return (
     <View style={styles.root}>
-      <View style={styles.stateContainer}>
-        <Icon style={styles.pin} name="map-pin" size={24} color={Color.dark} />
-        <Text style={[styles.state, styles.heading]}>{state.longName}</Text>
-      </View>
+      <StateList
+        visible={listVisible}
+        onPress={handleStatePress}
+        onClose={() => setListVisible(false)}
+      />
+
+      <TouchableOpacity onPress={() => setListVisible(true)}>
+        <View style={styles.stateContainer}>
+          <Icon
+            style={styles.pin}
+            name="map-pin"
+            color={Color.dark}
+            size={24}
+          />
+          <Text style={[styles.state, styles.heading]}>{state.longName}</Text>
+        </View>
+      </TouchableOpacity>
+
       <View style={styles.dateContainer}>
         <Icon
           style={styles.calendar}
